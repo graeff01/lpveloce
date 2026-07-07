@@ -3,7 +3,7 @@
 // ============================================================
 const WHATSAPP = {
   // Número com DDI + DDD, só dígitos. Ex Brasil: 55 + DDD + número
-  numero: "5500000000000",          // <-- TROCAR pelo número real
+  numero: "5551991597229",          // (51) 99159-7229
   mensagem: "Olá! Vim pelo site da Veloce e quero saber mais.",
 };
 // ============================================================
