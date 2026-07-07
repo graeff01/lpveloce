@@ -4,5 +4,8 @@
 # Arquivo intermediário pesado (PNG gerado a partir do PDF; usamos o .jpg)
 assets/**/*-full.png
 
+# Config local do MCP (não faz parte do site)
+.mcp.json
+
 # Compilados temporários
 *.tmp

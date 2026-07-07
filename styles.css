@@ -2,9 +2,10 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #05070d;
-  --blue: #2563ff;
-  --blue-bright: #3b82f6;
+  --bg: #0d0d0d;
+  --blue: #1d64f2;
+  --ink: #ebeef5;
+  --muted: #898a8d;
   --wa: #25d366;
   --wa-dark: #1ebe5a;
 }
@@ -13,30 +14,219 @@ html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
-  color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-/* ===== Deck (imagem da apresentação) ===== */
-.deck {
+/* =========================================================
+   Sistema de "palco em escala" (pixel-perfect + responsivo)
+   O .stage é montado em 1920x1080 e escalado por JS.
+   ========================================================= */
+.deck--desktop { display: none; }
+
+.slide {
+  position: relative;
   width: 100%;
-  background: #000;
-  text-align: center;
+  overflow: hidden;
+  background: var(--bg);
+}
+.stage {
+  position: absolute;
+  top: 0; left: 0;
+  width: 1920px;
+  height: 1080px;
+  transform-origin: top left;
 }
 
-.deck__img {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-width: 480px;   /* largura de "celular" — a arte vertical foi feita pra esse formato */
-  margin: 0 auto;
+/* mostra a versão desktop (HTML real) em telas largas */
+@media (min-width: 860px) {
+  .deck--desktop { display: block; }
+  .deck--mobile { display: none; }
 }
 
-/* Em telas largas, se houver desktop.jpg o <source> assume e podemos ocupar mais espaço */
-@media (min-width: 900px) {
-  .deck__img { max-width: 1400px; }
+/* ===== Versão mobile (imagem vertical) ===== */
+.deck--mobile { width: 100%; background: #000; text-align: center; }
+.deck__img { display: block; width: 100%; height: auto; max-width: 480px; margin: 0 auto; }
+
+/* =========================================================
+   SLIDE 1 — CAPA
+   ========================================================= */
+.stage--hero { background: var(--bg); }
+
+.hero__grad {
+  position: absolute; inset: 0;
+  background: radial-gradient(78% 120% at 6% -8%,
+    #1d64f2 0%, #194eb9 22%, #153980 40%, #132e63 52%,
+    #112346 64%, #0f182a 80%, #0d0d0d 100%);
+}
+.hero__beam {
+  position: absolute;
+  left: 508px; top: -145px;
+  width: 1698.878px; height: 1373px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.hero__voutline { position: absolute; left: 326.6px; top: 409.7px; width: 322.5px; height: 260px; }
+.hero__vlogo    { position: absolute; left: 364.8px; top: 451.5px; width: 241.943px; height: 195.534px; }
+
+.hero__word {
+  position: absolute; left: 661px; top: 424.7px;
+  width: 495px; height: 249px;
+  display: flex; align-items: center;
+  font-weight: 700;
+  font-size: 165.33px;
+  letter-spacing: -4.96px;
+  line-height: 1;
+  color: var(--ink);
+}
+.hero__tag {
+  position: absolute; left: 1210.4px; top: 500px;
+  width: 500px;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.22;
+  color: var(--ink);
+}
+.hero__tag span { display: block; }
+.hero__tag .muted { color: var(--muted); }
+
+.hero__copy {
+  position: absolute; top: 920px; left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-weight: 300;
+  font-size: 16.424px;
+  letter-spacing: 3.78px;
+  color: var(--ink);
+}
+
+/* rodapé de copyright compartilhado entre slides */
+.copyfoot {
+  position: absolute; top: 920px; left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-weight: 300; font-size: 16.424px;
+  letter-spacing: 3.78px; color: var(--ink);
+}
+.stage--dark { background: var(--bg); }
+.slidefull { position: absolute; inset: 0; width: 1920px; height: 1080px; display: block; }
+
+/* =========================================================
+   SLIDE 2 — Crescimento ou movimento?
+   ========================================================= */
+.s2__bg {
+  position: absolute; left: 0; top: 5px;
+  width: 1920px; height: 1079px;
+  object-fit: cover; opacity: 0.1; pointer-events: none;
+}
+.s2__left {
+  position: absolute; left: 188px; top: 298px; width: 726px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 34px;
+}
+.s2__vmark { width: 66px; height: 55px; }
+.s2__h {
+  width: 726px; font-weight: 700; font-size: 73.696px;
+  line-height: 1.2; letter-spacing: -1.5px; color: var(--ink);
+}
+.s2__sub { width: 580px; font-weight: 400; font-size: 38.738px; line-height: 1.2; color: var(--ink); }
+.s2__sub b { font-weight: 700; }
+
+.s2__right {
+  position: absolute; left: 1014px; top: 295px; width: 746.947px;
+  display: flex; flex-direction: column; gap: 33px;
+}
+.s2__row { display: flex; gap: 32px; align-items: center; }
+.s2__ico { width: 88.947px; height: 88.947px; flex: none; }
+.s2__q { flex: 1; font-weight: 400; font-size: 38.738px; line-height: 1.2; color: var(--ink); }
+
+/* =========================================================
+   SLIDE 3 — Aparência vs operação completa
+   ========================================================= */
+.s3__beam { position: absolute; left: 687px; top: -8px; width: 1698.878px; height: 1373px; mix-blend-mode: overlay; pointer-events: none; }
+.s3__glow {
+  position: absolute; left: 1150px; top: 521px; width: 790px; height: 790px;
+  border-radius: 50%; mix-blend-mode: screen; pointer-events: none;
+  background: radial-gradient(circle, rgba(29,100,242,0.55) 0%, rgba(29,100,242,0) 70%);
+}
+.s3__laptop { position: absolute; left: 245px; top: 202px; width: 2234px; height: 1076px; object-fit: contain; pointer-events: none; }
+
+.s3__left {
+  position: absolute; left: 179px; top: 163px; width: 680.431px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 34px;
+}
+.s3__h { width: 680.431px; font-weight: 700; font-size: 73.696px; line-height: 1.2; letter-spacing: -1.5px; color: var(--ink); }
+.s3__h .muted2 { color: #747474; }
+.s3__cards { display: flex; gap: 23px; align-items: stretch; }
+.s3__card { border-radius: 10.635px; padding: 19.34px 18.37px; height: 131.486px; }
+.s3__card--v { background: rgba(158,255,1,0.2); width: 312.28px; }
+.s3__card--a { background: rgba(228,11,11,0.2); width: 345.151px; }
+.s3__ct { font-weight: 700; font-size: 22.213px; line-height: 1.2; color: #fff; margin-bottom: 11.6px; }
+.s3__ct--a { color: #aeaeae; }
+.s3__cd { font-weight: 400; font-size: 22.213px; line-height: 1.2; color: var(--ink); }
+.s3__sub { width: 573px; font-weight: 400; font-size: 31.279px; line-height: 1.2; color: var(--ink); }
+.s3__sub b { font-weight: 700; }
+
+/* =========================================================
+   SLIDE 5 — O que isso muda pra você?
+   ========================================================= */
+.s5__beam { position: absolute; left: 119px; top: -151px; width: 1698.878px; height: 1373px; mix-blend-mode: overlay; pointer-events: none; }
+.s5__title {
+  position: absolute; top: 170px; left: 50%; transform: translateX(-50%);
+  width: 913px; text-align: center;
+  font-weight: 700; font-size: 73.696px; line-height: 1.2; color: var(--ink);
+}
+.s5__cols {
+  position: absolute; top: 347px; left: calc(50% + 7.5px); transform: translateX(-50%);
+  display: flex; gap: 148px; align-items: center;
+}
+.s5__left { width: 661px; display: flex; flex-direction: column; gap: 23px; }
+.s5__item { display: flex; gap: 11px; align-items: center; }
+.s5__arrow { width: 26px; height: 22px; flex: none; }
+.s5__txt { font-weight: 400; font-size: 38.738px; line-height: 1.2; color: var(--ink); }
+.s5__divider { width: 1px; height: 281px; background: rgba(235,238,245,0.28); flex: none; }
+.s5__right {
+  width: 650px; display: flex; flex-direction: column; gap: 21px;
+  font-weight: 400; font-size: 38.738px; line-height: 1.2; color: var(--ink);
+}
+.s5__right .blue { color: var(--blue); font-weight: 700; }
+
+/* =========================================================
+   SLIDE 6 — Nosso foco não é trabalhar em massa
+   ========================================================= */
+.s6__grad {
+  position: absolute; inset: 0;
+  background: radial-gradient(58% 82% at 84% 56%,
+    #2f7de8 0%, #1d64f2 16%, #17408c 38%, #112346 58%, #0d0d0d 76%);
+}
+.s6__beam { position: absolute; left: -455px; top: -8px; width: 1698.878px; height: 1373px; mix-blend-mode: overlay; pointer-events: none; }
+.s6__crystal {
+  position: absolute; left: 812px; top: -150px; width: 1340px; height: auto;
+  mix-blend-mode: screen; pointer-events: none;
+}
+.s6__left {
+  position: absolute; left: 149px; top: 50%; transform: translateY(-50%); width: 726px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 22px;
+}
+.s6__h { width: 726px; font-weight: 700; font-size: 73.696px; line-height: 1.2; letter-spacing: -1.5px; color: var(--ink); }
+.s6__p { width: 726px; font-weight: 400; font-size: 25.164px; line-height: 1.2; color: var(--ink); }
+.s6__p b { font-weight: 700; }
+.s6__p2 { width: 726px; font-weight: 700; font-size: 23.178px; line-height: 1.2; color: var(--ink); }
+
+/* =========================================================
+   SLIDE 7 — A primeira decisão estratégica
+   ========================================================= */
+.s7__beam { position: absolute; left: 585px; top: -108px; width: 1698.878px; height: 1373px; mix-blend-mode: overlay; pointer-events: none; }
+.s7__title {
+  position: absolute; top: 378px; left: 50%; transform: translateX(-50%);
+  width: 1247.484px; text-align: center;
+  font-weight: 700; font-size: 78.243px; line-height: 1.2; letter-spacing: -1.5px; color: var(--ink);
+}
+.s7__sub {
+  position: absolute; top: 601px; left: 50%; transform: translateX(-50%);
+  width: 886.51px; text-align: center;
+  font-weight: 400; font-size: 41.127px; line-height: 1.2; color: var(--ink);
 }
 
 /* ===== CTA / Contato ===== */
@@ -45,86 +235,42 @@ body {
   padding: 72px 24px 40px;
   text-align: center;
   background:
-    radial-gradient(120% 80% at 50% 0%, rgba(37,99,255,0.35) 0%, rgba(5,7,13,0) 60%),
-    linear-gradient(180deg, #070b16 0%, #05070d 100%);
+    radial-gradient(120% 80% at 50% 0%, rgba(29,100,242,0.35) 0%, rgba(13,13,13,0) 60%),
+    linear-gradient(180deg, #0b1120 0%, var(--bg) 100%);
   overflow: hidden;
 }
-
 .cta__inner { max-width: 640px; margin: 0 auto; }
-
-.cta__eyebrow {
-  font-size: 13px;
-  letter-spacing: 3px;
-  color: var(--blue-bright);
-  font-weight: 600;
-  margin-bottom: 18px;
-}
-
-.cta__title {
-  font-size: clamp(28px, 7vw, 44px);
-  line-height: 1.15;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.cta__text {
-  font-size: clamp(15px, 4vw, 18px);
-  line-height: 1.6;
-  color: #b8c0d0;
-  margin-bottom: 34px;
-}
-
+.cta__eyebrow { font-size: 13px; letter-spacing: 3px; color: #3b82f6; font-weight: 600; margin-bottom: 18px; }
+.cta__title { font-size: clamp(28px, 6vw, 46px); line-height: 1.15; font-weight: 700; margin-bottom: 20px; }
+.cta__text { font-size: clamp(15px, 4vw, 18px); line-height: 1.6; color: #b8c0d0; margin-bottom: 34px; }
 .cta__btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: var(--wa);
-  color: #05231a;
-  font-size: 17px;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 16px 30px;
-  border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--wa); color: #05231a;
+  font-size: 17px; font-weight: 700; text-decoration: none;
+  padding: 16px 30px; border-radius: 999px;
   transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
   box-shadow: 0 10px 30px rgba(37,211,102,0.35);
 }
 .cta__btn:hover { background: var(--wa-dark); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(37,211,102,0.45); }
-.cta__btn:active { transform: translateY(0); }
-
-.cta__copyright {
-  margin-top: 56px;
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: #55607a;
-}
+.cta__copyright { margin-top: 56px; font-size: 12px; letter-spacing: 1px; color: #55607a; }
 
 /* ===== Botão flutuante WhatsApp ===== */
 .fab {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: var(--wa);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 rgba(37,211,102,0.6);
-  z-index: 50;
+  position: fixed; right: 18px; bottom: 18px;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: var(--wa); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; z-index: 50;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
   animation: pulse 2.4s infinite;
   transition: transform .15s ease;
 }
 .fab:hover { transform: scale(1.06); }
-
 @keyframes pulse {
   0%   { box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 0 rgba(37,211,102,0.5); }
   70%  { box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 16px rgba(37,211,102,0); }
   100% { box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 0 rgba(37,211,102,0); }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .fab { animation: none; }
   html { scroll-behavior: auto; }

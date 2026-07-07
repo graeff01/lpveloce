@@ -5,28 +5,191 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Veloce — Seu braço estratégico no mercado digital</title>
   <meta name="description" content="Veloce: não administramos marketing, construímos sistemas de decisão. Operação completa, não só aparência." />
-
-  <!-- Open Graph / compartilhamento -->
   <meta property="og:title" content="Veloce — Seu braço estratégico no mercado digital" />
   <meta property="og:description" content="Não administramos marketing. Construímos sistemas de decisão." />
   <meta property="og:type" content="website" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ================= APRESENTAÇÃO (imagem do Figma) ================= -->
-  <main class="deck">
-    <!-- Quando o desktop.jpg existir, troco por um <picture> que faz o swap -->
+  <!-- =========================================================
+       DESKTOP — slides reconstruídos em HTML (palco 1920x1080)
+       ========================================================= -->
+  <main class="deck deck--desktop">
+
+    <!-- ---------- SLIDE 1 — CAPA ---------- -->
+    <section class="slide" data-slide="1">
+      <div class="stage stage--hero">
+        <!-- fundo: gradiente azul + arte diagonal (overlay) -->
+        <div class="hero__grad"></div>
+        <img class="hero__beam" src="assets/figma/hero-bg-vector.svg" alt="" aria-hidden="true" />
+
+        <!-- lockup central -->
+        <img class="hero__voutline" src="assets/figma/v-outline.svg" alt="" aria-hidden="true" />
+        <img class="hero__vlogo" src="assets/figma/v-logo.svg" alt="Logotipo Veloce" />
+        <h1 class="hero__word">Veloce</h1>
+        <p class="hero__tag"><span>Seu braço estratégico </span><span class="muted">no mercado digital!</span></p>
+
+        <p class="hero__copy">© 2026 VELOCE. TODOS OS DIREITOS RESERVADOS</p>
+      </div>
+    </section>
+
+    <!-- ---------- SLIDE 2 — MARKETING: CRESCIMENTO OU MOVIMENTO? ---------- -->
+    <section class="slide" data-slide="2">
+      <div class="stage stage--dark">
+        <img class="s2__bg" src="assets/figma/s2-bg.png" alt="" aria-hidden="true" />
+
+        <div class="s2__left">
+          <img class="s2__vmark" src="assets/figma/v-mark.svg" alt="" aria-hidden="true" />
+          <h2 class="s2__h">Seu marketing está gerando crescimento ou só movimento?</h2>
+          <p class="s2__sub">Todo mês você <b>libera orçamento</b> sem conseguir responder:</p>
+        </div>
+
+        <div class="s2__right">
+          <div class="s2__row">
+            <img class="s2__ico" src="assets/figma/s2-icon1.png" alt="" aria-hidden="true" />
+            <p class="s2__q">Quanto dinheiro você perdeu esse mês sem perceber?</p>
+          </div>
+          <div class="s2__row">
+            <img class="s2__ico" src="assets/figma/s2-icon2.png" alt="" aria-hidden="true" />
+            <p class="s2__q">Quantos leads ficaram sem resposta e viraram venda do concorrente?</p>
+          </div>
+          <div class="s2__row">
+            <img class="s2__ico" src="assets/figma/s2-icon3.png" alt="" aria-hidden="true" />
+            <p class="s2__q">Qual campanha realmente paga sua operação, e qual só queima caixa?</p>
+          </div>
+          <div class="s2__row">
+            <img class="s2__ico" src="assets/figma/s2-icon4.png" alt="" aria-hidden="true" />
+            <p class="s2__q">Onde seu faturamento está vazando agora, sem ninguém ver?</p>
+          </div>
+        </div>
+
+        <p class="copyfoot">© 2026 VELOCE. TODOS OS DIREITOS RESERVADOS</p>
+      </div>
+    </section>
+
+    <!-- ---------- SLIDE 3 — APARÊNCIA vs OPERAÇÃO COMPLETA ---------- -->
+    <section class="slide" data-slide="3">
+      <div class="stage stage--dark">
+        <img class="s3__beam" src="assets/figma/s3-beam.svg" alt="" aria-hidden="true" />
+        <div class="s3__glow"></div>
+        <img class="s3__laptop" src="assets/figma/s3-laptop.png" alt="" aria-hidden="true" />
+
+        <div class="s3__left">
+          <img class="s2__vmark" src="assets/figma/v-mark.svg" alt="" aria-hidden="true" />
+          <h2 class="s3__h"><span class="muted2">A maioria entrega somente aparência.</span> Nós entregamos operação completa.</h2>
+          <div class="s3__cards">
+            <div class="s3__card s3__card--v">
+              <p class="s3__ct">VELOCE</p>
+              <p class="s3__cd">Descobre o problema antes dele custar dinheiro.</p>
+            </div>
+            <div class="s3__card s3__card--a">
+              <p class="s3__ct s3__ct--a">AGÊNCIA COMUM</p>
+              <p class="s3__cd">Espera o relatório do mês para descobrir o que já deu errado.</p>
+            </div>
+          </div>
+          <p class="s3__sub"><b>Crescimento não vem de post bonito.</b> Vem de decisão tomada na hora certa, com a informação certa.</p>
+        </div>
+
+        <p class="copyfoot">© 2026 VELOCE. TODOS OS DIREITOS RESERVADOS</p>
+      </div>
+    </section>
+
+    <!-- ---------- SLIDE 4 — SISTEMAS DE DECISÃO (arte completa) ---------- -->
+    <section class="slide" data-slide="4">
+      <div class="stage stage--dark">
+        <img class="slidefull" src="assets/figma/s4.jpg"
+             alt="A maioria administra marketing. Nós construímos sistemas de decisão. Você nunca mais fica no escuro, todo lead sem resposta aparece na hora, funil completo e alertas direto no seu Telegram." />
+      </div>
+    </section>
+
+    <!-- ---------- SLIDE 5 — O QUE ISSO MUDA PRA VOCÊ? ---------- -->
+    <section class="slide" data-slide="5">
+      <div class="stage stage--dark">
+        <img class="s5__beam" src="assets/figma/s3-beam.svg" alt="" aria-hidden="true" />
+
+        <h2 class="s5__title">O que isso muda pra você?</h2>
+
+        <div class="s5__cols">
+          <div class="s5__left">
+            <div class="s5__item">
+              <svg class="s5__arrow" viewBox="0 0 22 19" fill="none" aria-hidden="true"><path d="M2 9.5h17M12.5 3l6.5 6.5-6.5 6.5" stroke="#1d64f2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="s5__txt">Antes, você torcia. Agora, você sabe.</p>
+            </div>
+            <div class="s5__item">
+              <svg class="s5__arrow" viewBox="0 0 22 19" fill="none" aria-hidden="true"><path d="M2 9.5h17M12.5 3l6.5 6.5-6.5 6.5" stroke="#1d64f2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="s5__txt">Antes, você esperava o relatório. Agora, você age na hora.</p>
+            </div>
+            <div class="s5__item">
+              <svg class="s5__arrow" viewBox="0 0 22 19" fill="none" aria-hidden="true"><path d="M2 9.5h17M12.5 3l6.5 6.5-6.5 6.5" stroke="#1d64f2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="s5__txt">Antes, você descobria o prejuízo. Agora, você evita o prejuízo.</p>
+            </div>
+            <div class="s5__item">
+              <svg class="s5__arrow" viewBox="0 0 22 19" fill="none" aria-hidden="true"><path d="M2 9.5h17M12.5 3l6.5 6.5-6.5 6.5" stroke="#1d64f2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="s5__txt">Antes, crescer era aposta. Agora, é engenharia.</p>
+            </div>
+          </div>
+
+          <div class="s5__divider"></div>
+
+          <div class="s5__right">
+            <p>Sem informação, crescer é aposta. Com a Veloce, crescer vira engenharia.</p>
+            <p>Olha esse exemplo da <span class="blue">Boquerião Veículos:</span></p>
+            <p>Eles demoravam X horas para responder um lead. Depois da Veloce, caiu para Y minutos. Resultado: +Z vendas / R$ recuperados em período.</p>
+          </div>
+        </div>
+
+        <p class="copyfoot">© 2026 VELOCE. TODOS OS DIREITOS RESERVADOS</p>
+      </div>
+    </section>
+
+    <!-- ---------- SLIDE 6 — NOSSO FOCO NÃO É TRABALHAR EM MASSA ---------- -->
+    <section class="slide" data-slide="6">
+      <div class="stage stage--dark">
+        <div class="s6__grad"></div>
+        <img class="s6__beam" src="assets/figma/s3-beam.svg" alt="" aria-hidden="true" />
+        <img class="s6__crystal" src="assets/figma/s6-crystal.png" alt="" aria-hidden="true" />
+
+        <div class="s6__left">
+          <img class="s2__vmark" src="assets/figma/v-mark.svg" alt="" aria-hidden="true" />
+          <h2 class="s6__h">Nosso foco não é trabalhar em massa.</h2>
+          <p class="s6__p">A Veloce não cresce por volume. <b>Limitamos o número de clientes ativos</b> porque nosso modelo exige proximidade real, análise contínua e relação de confiança isso não existe com a agenda lotada. Por isso, em muitos casos, evitamos atender concorrentes diretos na mesma região.</p>
+          <p class="s6__p2">Se o seu concorrente começar a operar com inteligência antes de você, a vantagem deixa de ser sua e passa a jogar contra.</p>
+        </div>
+
+        <p class="copyfoot">© 2026 VELOCE. TODOS OS DIREITOS RESERVADOS</p>
+      </div>
+    </section>
+
+    <!-- ---------- SLIDE 7 — A PRIMEIRA DECISÃO ESTRATÉGICA ---------- -->
+    <section class="slide" data-slide="7">
+      <div class="stage stage--dark">
+        <div class="hero__grad"></div>
+        <img class="s7__beam" src="assets/figma/s3-beam.svg" alt="" aria-hidden="true" />
+        <h2 class="s7__title">A primeira decisão estratégica talvez não seja contratar a Veloce.</h2>
+        <p class="s7__sub">É descobrir quanto dinheiro sua operação perde hoje sem você perceber.</p>
+        <p class="copyfoot">© 2026 VELOCE. TODOS OS DIREITOS RESERVADOS</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       MOBILE — apresentação vertical (imagem) por enquanto
+       ========================================================= -->
+  <div class="deck deck--mobile">
     <img
       class="deck__img"
       src="assets/mobile/mobile.jpg"
       alt="Apresentação comercial Veloce"
-      width="1371"
-      height="14163"
+      width="1371" height="14163"
       fetchpriority="high"
     />
-  </main>
+  </div>
 
   <!-- ================= CHAMADA FINAL / CONTATO ================= -->
   <section class="cta" id="contato">
@@ -37,11 +200,8 @@
         Fale com a Veloce agora mesmo pelo WhatsApp e descubra o que
         uma operação completa pode fazer pelo seu negócio.
       </p>
-
       <a class="cta__btn" href="#" data-whatsapp>
-        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-          <path fill="currentColor" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.34.44-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.19-.24-.57-.48-.5-.66-.5l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.24-.69.24-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12 2a10 10 0 0 0-8.5 15.28L2 22l4.85-1.27A10 10 0 1 0 12 2zm0 18.13a8.13 8.13 0 0 1-4.14-1.14l-.3-.18-3.07.8.82-2.99-.19-.31A8.13 8.13 0 1 1 12 20.13z"/>
-        </svg>
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.34.44-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.19-.24-.57-.48-.5-.66-.5l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.24-.69.24-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12 2a10 10 0 0 0-8.5 15.28L2 22l4.85-1.27A10 10 0 1 0 12 2zm0 18.13a8.13 8.13 0 0 1-4.14-1.14l-.3-.18-3.07.8.82-2.99-.19-.31A8.13 8.13 0 1 1 12 20.13z"/></svg>
         Falar no WhatsApp
       </a>
     </div>
@@ -50,9 +210,7 @@
 
   <!-- ================= BOTÃO FLUTUANTE WHATSAPP ================= -->
   <a class="fab" href="#" data-whatsapp aria-label="Falar no WhatsApp">
-    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
-      <path fill="currentColor" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.34.44-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.19-.24-.57-.48-.5-.66-.5l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.24-.69.24-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12 2a10 10 0 0 0-8.5 15.28L2 22l4.85-1.27A10 10 0 1 0 12 2zm0 18.13a8.13 8.13 0 0 1-4.14-1.14l-.3-.18-3.07.8.82-2.99-.19-.31A8.13 8.13 0 1 1 12 20.13z"/>
-    </svg>
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.34.44-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.19-.24-.57-.48-.5-.66-.5l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.24-.69.24-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12 2a10 10 0 0 0-8.5 15.28L2 22l4.85-1.27A10 10 0 1 0 12 2zm0 18.13a8.13 8.13 0 0 1-4.14-1.14l-.3-.18-3.07.8.82-2.99-.19-.31A8.13 8.13 0 1 1 12 20.13z"/></svg>
   </a>
 
   <script src="script.js"></script>
