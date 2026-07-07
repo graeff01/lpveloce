@@ -1,0 +1,131 @@
+/* ===== Base ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #05070d;
+  --blue: #2563ff;
+  --blue-bright: #3b82f6;
+  --wa: #25d366;
+  --wa-dark: #1ebe5a;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== Deck (imagem da apresentação) ===== */
+.deck {
+  width: 100%;
+  background: #000;
+  text-align: center;
+}
+
+.deck__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 480px;   /* largura de "celular" — a arte vertical foi feita pra esse formato */
+  margin: 0 auto;
+}
+
+/* Em telas largas, se houver desktop.jpg o <source> assume e podemos ocupar mais espaço */
+@media (min-width: 900px) {
+  .deck__img { max-width: 1400px; }
+}
+
+/* ===== CTA / Contato ===== */
+.cta {
+  position: relative;
+  padding: 72px 24px 40px;
+  text-align: center;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(37,99,255,0.35) 0%, rgba(5,7,13,0) 60%),
+    linear-gradient(180deg, #070b16 0%, #05070d 100%);
+  overflow: hidden;
+}
+
+.cta__inner { max-width: 640px; margin: 0 auto; }
+
+.cta__eyebrow {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--blue-bright);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.cta__title {
+  font-size: clamp(28px, 7vw, 44px);
+  line-height: 1.15;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta__text {
+  font-size: clamp(15px, 4vw, 18px);
+  line-height: 1.6;
+  color: #b8c0d0;
+  margin-bottom: 34px;
+}
+
+.cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--wa);
+  color: #05231a;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 16px 30px;
+  border-radius: 999px;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  box-shadow: 0 10px 30px rgba(37,211,102,0.35);
+}
+.cta__btn:hover { background: var(--wa-dark); transform: translateY(-2px); box-shadow: 0 14px 36px rgba(37,211,102,0.45); }
+.cta__btn:active { transform: translateY(0); }
+
+.cta__copyright {
+  margin-top: 56px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #55607a;
+}
+
+/* ===== Botão flutuante WhatsApp ===== */
+.fab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--wa);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 rgba(37,211,102,0.6);
+  z-index: 50;
+  animation: pulse 2.4s infinite;
+  transition: transform .15s ease;
+}
+.fab:hover { transform: scale(1.06); }
+
+@keyframes pulse {
+  0%   { box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 0 rgba(37,211,102,0.5); }
+  70%  { box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 16px rgba(37,211,102,0); }
+  100% { box-shadow: 0 8px 24px rgba(0,0,0,0.4), 0 0 0 0 rgba(37,211,102,0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fab { animation: none; }
+  html { scroll-behavior: auto; }
+}

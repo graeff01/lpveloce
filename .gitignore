@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Arquivo intermediário pesado (PNG gerado a partir do PDF; usamos o .jpg)
+assets/**/*-full.png
+
+# Compilados temporários
+*.tmp

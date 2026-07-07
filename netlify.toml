@@ -1,0 +1,10 @@
+# Site estático — sem build. Netlify publica a raiz do projeto.
+[build]
+  publish = "."
+  command = ""
+
+# Cache longo para as imagens (não mudam com frequência)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
